@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import { Chart } from "react-google-charts";
 
-// const data = [
-//   ["Region", "Health"],
-//   ["Canada", 400],
-//   ["United States", 700],
-//   ["United Kingdom", 400],
-//   ["Vietnam", 400],
-//   ["Portugal", 300],
-//   ["Japan", 200],
-//   ["India", 100],
-//   ["Australia", 300]
-// ];
-
 class MapChart extends Component {
   constructor(props) {
     super(props);
