@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Chart } from "react-google-charts";
 
-const data = [
-  ["Region", "Health"],
-  ["Canada", 400],
-  ["United States", 700],
-  ["United Kingdom", 400],
-  ["Vietnam", 400],
-  ["Portugal", 300],
-  ["Japan", 200],
-  ["India", 100],
-  ["Australia", 300]
-];
+// const data = [
+//   ["Region", "Health"],
+//   ["Canada", 400],
+//   ["United States", 700],
+//   ["United Kingdom", 400],
+//   ["Vietnam", 400],
+//   ["Portugal", 300],
+//   ["Japan", 200],
+//   ["India", 100],
+//   ["Australia", 300]
+// ];
 
 class MapChart extends Component {
   constructor(props) {
@@ -23,12 +23,14 @@ class MapChart extends Component {
         defaultColor: "#FFFFFF",
         legend: "none",
         enableRegionInteractivity: true
-      }
+      },
+      data: this.props.mapData
     };
   }
   render() {
     return (
       <div>
+        {/* <button className="refresh-button">Refresh</button> */}
         <Chart
           chartEvents={[
             {
@@ -37,31 +39,28 @@ class MapChart extends Component {
                 const chart = chartWrapper.getChart();
                 const selection = chart.getSelection();
                 if (selection.length === 0) return;
-                const region = data[selection[0].row + 1];
+                const region = this.state.data[selection[0].row + 1];
                 console.log(selection);
-                let newOptions = this.state.options;
                 if (region[0] === "India") {
-                  newOptions.region = "IN";
+                  chartWrapper.setOption("region", "IN");
                 }
                 if (region[0] === "United States") {
-                  newOptions.region = "019";
+                  chartWrapper.setOption("region", "019");
                 }
                 if (region[0] === "United Kingdom") {
-                  newOptions.region = "150";
+                  chartWrapper.setOption("region", "150");
                 }
                 if (region[0] === "Vietnam") {
-                  newOptions.region = "VN";
+                  chartWrapper.setOption("region", "VN");
                 }
-                this.setState({
-                  options: newOptions
-                });
+                chartWrapper.draw();
               }
             }
           ]}
           chartType="GeoChart"
           width="100%"
           position="relative"
-          data={data}
+          data={this.state.data}
           options={this.state.options}
         />
       </div>
