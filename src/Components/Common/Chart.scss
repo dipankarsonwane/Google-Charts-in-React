@@ -1,0 +1,23 @@
+.chart-container {
+  display: inline-block;
+  background: #ffffff;
+  width: 55%;
+  .chart-header {
+    float: left;
+    text-align: left;
+    width: 100%;
+    .refresh-icon {
+      float: right;
+      text-align: right;
+      color: #000000;
+      font-size: 20px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .chart-div {
+    float: left;
+    width: 55%;
+    margin: 1%;
+  }
+}

@@ -22,21 +22,16 @@ class LineChart extends Component {
             curveType: "function",
             legend: { position: "bottom" },
             series: {
+              0: {
+                color: "#32CD32"
+              },
               1: {
                 type: "steppedArea",
-                color: "#FF0000",
+                color: "#DC143C",
                 visibleInLegend: false,
                 enableInteractivity: false,
                 areaOpacity: 0
               }
-            },
-            animation: {
-              startup: true,
-              dusration: 1500,
-              easing: "linear"
-            },
-            vAxis: {
-              baseline: 0
             }
           }}
         ></Chart>

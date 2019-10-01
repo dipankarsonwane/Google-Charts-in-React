@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MapChart from "../Common/MapChart";
 import LineChart from "../Common/LineChart";
+import ColumnChart from "../Common/ColumnChart";
 
 import "./landing.scss";
 
@@ -28,6 +29,13 @@ const lineData = [
   ["Sep", 200, 360],
   ["Oct", 190, 360]
 ];
+const columnData = [
+  ["Year", "Target", "Forecast", "Actual"],
+  ["India", 1000, 1100, 800],
+  ["America", 1170, 1100, 850],
+  ["Europe", 700, 850, 720],
+  ["Japan", 1030, 940, 600]
+];
 class Landing extends Component {
   constructor(props) {
     super(props);
@@ -36,14 +44,9 @@ class Landing extends Component {
   render() {
     return (
       <div className="container">
-        <div>
-          <div className="mapchart-container">
-            <MapChart mapData={mapData} />
-          </div>
-        </div>
-        <div className="linechart-container">
-          <LineChart lineData={lineData} />
-        </div>
+        <MapChart mapData={mapData} />
+        <LineChart lineData={lineData} />
+        <ColumnChart columnData={columnData} />
       </div>
     );
   }

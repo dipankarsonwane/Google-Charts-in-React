@@ -1,8 +1,4 @@
 .container {
   width: 100%;
-  display: inline-flex;
-  .linechart-container {
-    margin-left: 0.5%;
-    background-color: #ffffff;
-  }
+  display: flex;
 }
